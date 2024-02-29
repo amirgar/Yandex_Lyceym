@@ -1,21 +1,4 @@
-import os
+from zipfile import ZipFile
 
-
-def human_read_format(size):
-    if size < 1024:
-        return f"{size}Б"
-    elif size < 1024 * 1024:
-        return f"{round(size / 1024)}КБ"
-    elif size < 1024 * 1024 * 1024:
-        return f"{round(size / (1024 * 1024))}МБ"
-    else:
-        return f"{round(size / (1024 * 1024 * 1024))}ГБ"
-
-
-def get_files_size():
-    files = list(os.listdir())
-    lfiles = []
-    for file in files:
-        if os.path.isfile(file):
-            lfiles.append(file)
-    for
+with ZipFile('archive.zip') as f:
+    print(f.namelist())
